@@ -72,7 +72,7 @@ class Connect4 {
         const winner = that.player;
         if (that.player === 'red') { alert(`Vitória do jogador 1!`);}
         else {alert(`Vitória do jogador 2!`);}
-        window.location.reload(false); 
+        window.location.reload(false);
         $('.col.empty').removeClass('empty');
         return;
       }
