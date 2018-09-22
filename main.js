@@ -1,16 +1,15 @@
 function makeBoard() {
   row = window.prompt("Número de filas", 6);
   col = window.prompt("Número de colunas", 7);
-  var i = 0;
-  var j = 0;
-  for (i = 0; i < parseInt(row);i++) {
+
+  for (var i = 0; i < parseInt(row);i++) {
     var rows = document.createElement("div");
     console.log(rows);
-    rows.id = "row" + i;
+    rows.classList.add("row");
     document.getElementById("board").appendChild(rows)
-    for (j = 0; j < parseInt(col);j++) {
+    for (var j = 0; j < parseInt(col);j++) {
       var cols = document.createElement("div");
-      cols.id = "col" + i + j;
+      cols.classList.add("col");
       rows.appendChild(cols);
 
     }

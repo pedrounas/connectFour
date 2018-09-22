@@ -7,7 +7,7 @@ body {
   display: inline-block;
 }
 
-[id^=col] {
+.col {
   width: 70px;
   height: 70px;
   display: inline-block;
