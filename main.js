@@ -1,6 +1,6 @@
 function makeBoard() {
-  row = prompt("Número de filas", 6);
-  col = prompt("Número de colunas", 7);
+  row = window.prompt("Número de filas", 6);
+  col = window.prompt("Número de colunas", 7);
   var i = 0;
   var j = 0;
   for (i = 0; i < parseInt(row);i++) {
