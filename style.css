@@ -2,12 +2,12 @@ body {
   text-align: center;
 }
 
-#connect4 {
+#board {
   background-color: dodgerblue;
   display: inline-block;
 }
 
-.col {
+[id^=col] {
   width: 70px;
   height: 70px;
   display: inline-block;
