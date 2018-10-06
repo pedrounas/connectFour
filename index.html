@@ -27,11 +27,6 @@
       </div>
       <script> makeBoard() </script>
       <div class="menu">
-        <div class="popup" onclick="popupInst()">Instruções
-          <span class="popuptext" id="myPopup"> O objetivo do Connect Four é colocar peças até o formar uma linha com 4 peças em qualquer direção, vertical
-            horizontal ou diagonal. Ganha quem formar primeiro</span>
-        </div>
-
         <p class="option">Tamanho do Tabuleiro</p>
         <p>
           <select id="difficulty" autocomplete="off">
@@ -42,10 +37,11 @@
         </p>
         <p><button class="save" onclick="restartGame();" type="submit">Definir Tabuleiro</button></p>
         <p><button class="quit" onclick="quitGame();">Desistir</button></p>
-
-
-
       </div>
+    </div>
+    <div class="popup" onclick="popupInst()">Instruções
+      <span class="popuptext" id="myPopup"> O objetivo do Connect Four é colocar peças até o formar uma linha com 4 peças em qualquer direção, vertical
+        horizontal ou diagonal. Ganha o primeiro jogador que conseguir colocar 4 peças da sua cor.</span>
     </div>
 
   </body>
