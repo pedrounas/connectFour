@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
   <meta charset="utf-8">
 
@@ -5,9 +7,17 @@
     <title>Connect 4</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
+    <script>
+      function show(shown, hidden) {
+        document.getElementById(shown).style.display = 'block';
+        document.getElementById(hidden).style.display = 'none';
+        return false;
+      }
+    </script>
   </head>
 
-  <body>
+  <body onload="login()">
+
     <div>
       <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
     </div>
@@ -17,7 +27,12 @@
       </div>
       <script> makeBoard() </script>
       <div class="menu">
-        <p class="option">Board Size</p>
+        <div class="popup" onclick="popupInst()">Instruções
+          <span class="popuptext" id="myPopup"> O objetivo do Connect Four é colocar peças até o formar uma linha com 4 peças em qualquer direção, vertical
+            horizontal ou diagonal. Ganha quem formar primeiro</span>
+        </div>
+
+        <p class="option">Tamanho do Tabuleiro</p>
         <p>
           <select id="difficulty" autocomplete="off">
             <option value="4_5">4 linhas e 5 colunas</option>
@@ -25,11 +40,13 @@
             <option value="9_10">9 linhas e 10 colunas</option>
           </select>
         </p>
-        <p><button class="save" onclick="restartGame();" type="submit">Restart Game</button></p>
-        <p><button class="quit" onclick="quitGame();">Quit Game</button></p>
+        <p><button class="save" onclick="restartGame();" type="submit">Definir Tabuleiro</button></p>
+        <p><button class="quit" onclick="quitGame();">Desistir</button></p>
+
+
+
       </div>
     </div>
-
 
   </body>
 

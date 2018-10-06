@@ -1,3 +1,8 @@
+function login() {
+  prompt("Nome de Utilizador");
+  prompt("Palavra Passe");
+}
+
 function makeBoard() {
   var row = 6;
   var col = 7;
@@ -65,7 +70,7 @@ function restartGame() {
   console.log(row + " " + col);
   for (var i = 0; i < row; i++) {
     var board = document.createElement("div");
-    board.id ="board";
+    board.id = "board";
     var rows = document.createElement("div");
     rows.classList.add("row");
     rows.id = i;
@@ -137,11 +142,11 @@ function checkIfWin(a, b) {
   }
 
   for (var i = 0; i < b; i++) {
-    for (var j = a-1; j >= a - 3; j--) {
+    for (var j = a - 1; j >= a - 3; j--) {
       var id = "col_" + j + "_" + i;
-      var id2 = "col_" + (j-1) + "_" + i;
-      var id3 = "col_" + (j-2) + "_" + i;
-      var id4 = "col_" + (j-3) + "_" + i;
+      var id2 = "col_" + (j - 1) + "_" + i;
+      var id3 = "col_" + (j - 2) + "_" + i;
+      var id4 = "col_" + (j - 3) + "_" + i;
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
         alert("O jogador vermelho ganhou!");
@@ -152,13 +157,12 @@ function checkIfWin(a, b) {
       }
     }
   }
-
-  for (var i = a-1; i > 2; i--) {
+  for (var i = a - 1; i > 2; i--) {
     for (var j = 0; j < b - 3; j++) {
       var id = "col_" + i + "_" + j;
-      var id2 = "col_" + (i-1) + "_" + (j+1);
-      var id3 = "col_" + (i-2) + "_" + (j+2);
-      var id4 = "col_" + (i-3) + "_" + (j+3);
+      var id2 = "col_" + (i - 1) + "_" + (j + 1);
+      var id3 = "col_" + (i - 2) + "_" + (j + 2);
+      var id4 = "col_" + (i - 3) + "_" + (j + 3);
 
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
@@ -172,12 +176,12 @@ function checkIfWin(a, b) {
     }
   }
 
-  for (var i = 0; i < a-3; i++) {
+  for (var i = 0; i < a - 3; i++) {
     for (var j = 0; j < b - 3; j++) {
       var id = "col_" + i + "_" + j;
-      var id2 = "col_" + (i+1) + "_" + (j+1);
-      var id3 = "col_" + (i+2) + "_" + (j+2);
-      var id4 = "col_" + (i+3) + "_" + (j+3);
+      var id2 = "col_" + (i + 1) + "_" + (j + 1);
+      var id3 = "col_" + (i + 2) + "_" + (j + 2);
+      var id4 = "col_" + (i + 3) + "_" + (j + 3);
 
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
@@ -190,4 +194,9 @@ function checkIfWin(a, b) {
     }
   }
 
+}
+
+function popupInst() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
 }
