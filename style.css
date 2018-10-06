@@ -22,15 +22,15 @@ body {
   cursor: pointer;
 }
 
-.next{
+.next {
   background-color: gray;
 }
 
-.col.red{
+.col.red {
   background-color: red;
 }
 
-.col.yellow{
+.col.yellow {
   background-color: yellow;
 }
 
@@ -38,6 +38,21 @@ h1 {
   font-family: sans-serif;
 }
 
-p {
+.menu {
+  float: left;
+  margin: 0px 10px;
+}
+
+.container {
+  float: left;
+  position: relative;
+}
+
+.all {
+  position: absolute;
+  left: 25%;
+}
+
+#copyright {
   font-size: 10px;
 }
