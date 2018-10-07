@@ -18,6 +18,9 @@ body {
   border-color: lightskyblue;
 }
 
+.option {
+  font-weight: bold;
+}
 .col.empty {
   cursor: pointer;
 }
@@ -63,6 +66,10 @@ h1 {
   position: relative;
   display: inline-block;
   cursor: pointer;
+  padding: 5px;
+  border-radius: 6px;
+  background-color:;
+  background-color:Gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -79,7 +86,7 @@ h1 {
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  bottom: -1125%;
+  bottom: -725%;
   left: 50%;
   margin-left: -80px;
 }
