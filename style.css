@@ -60,6 +60,76 @@ h1 {
   font-size: 10px;
 }
 
+.login {
+  width: 400px;
+  display: table;
+  margin: 0 auto;
+  background-color: dodgerblue;
+  border-radius: 10px;
+  padding: 25px 20px;
+}
+
+.login input[type = "submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100px;
+    background: white;
+    color: dodgerblue;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.login input[type = "submit"]:hover
+{
+    cursor: pointer;
+    background: dodgerblue;
+    color: #fff;
+
+}
+
+.login input[type = "text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+* button {
+  width: 200px;
+  background-color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.option {
+  font-family: arial;
+  font-weight: lighter;
+}
+#difficulty {
+  background-color: white;
+  width: 200px;
+}
+
+.login p{
+    color: white;
+    font-family: arial;
+    font-weight: bold;
+
+}
+
+.login h1 {
+  color: white;
+  font-weight: lighter;
+}
+
+
 .popup {
   float: left;
   left: 10%;
@@ -109,13 +179,15 @@ h1 {
 }
 
 
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 60%;
-    position: absolute;
     margin-left: 20%;
+    background-color: white;
 }
+
 
 td, th {
     border: 1px solid #dddddd;

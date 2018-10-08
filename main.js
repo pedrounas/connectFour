@@ -1,12 +1,9 @@
-function login() {
-  prompt("Nome de Utilizador");
-  prompt("Palavra Passe");
-}
+  var turn = 0;
 
 function makeBoard() {
   var row = 6;
   var col = 7;
-  var turn = 0;
+
   for (var i = 0; i < 6; i++) {
     var rows = document.createElement("div");
     rows.classList.add("row");
@@ -196,7 +193,7 @@ function checkIfWin(a, b) {
 
 }
 
-function popupInst() {
+/*function popupInst() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
-}
+}*/
