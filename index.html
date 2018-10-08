@@ -19,7 +19,7 @@
 
   <body background="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/master/qbkls.png">
 
-    <div id="Page0">
+    <div id="Page0" style="display:none">
 
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
@@ -40,7 +40,7 @@
       </div>
     </div>
 
-    <div id="Page1" style="display:none">
+    <div id="Page1" >
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
@@ -48,7 +48,7 @@
         <div class="container" id="container">
           <div id="board"></div>
         </div>
-        <script> makeBoard() </script>
+        <script> makeBoard()</script>
         <div class="menu">
 
           <p class="option">Tamanho do Tabuleiro</p>
@@ -67,6 +67,7 @@
           <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
           <br>
           <p><button class="quit" onclick="quitGame();">Desistir</button></p>
+          <p><button class="quit" onclick="minimax();">Utility</button></p>
 
         </div>
       </div>
