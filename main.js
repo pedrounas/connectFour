@@ -68,7 +68,7 @@ function restartGame() {
   var board = document.createElement("div");
   console.log(row + " " + col);
   for (var i = 0; i < row; i++) {
-    
+
     board.id = "board";
     var rows = document.createElement("div");
     rows.classList.add("row");
