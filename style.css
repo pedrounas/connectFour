@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body {
   text-align: center;
+
 }
 
 #board {
@@ -61,11 +68,11 @@ h1 {
 }
 
 .login {
-  width: 400px;
+  width: 300px;
   display: table;
   margin: 0 auto;
   background-color: dodgerblue;
-  border-radius: 10px;
+
   padding: 25px 20px;
 }
 
@@ -78,7 +85,6 @@ h1 {
     background: white;
     color: dodgerblue;
     font-weight: bold;
-    border-radius: 5px;
     font-size: 20px;
 }
 
@@ -104,7 +110,6 @@ h1 {
 * button {
   width: 200px;
   background-color: white;
-  border-radius: 6px;
   cursor: pointer;
 }
 
@@ -112,7 +117,7 @@ h1 {
   font-family: arial;
   font-weight: lighter;
 }
-#difficulty {
+#difficulty, #sized{
   background-color: white;
   width: 200px;
 }
