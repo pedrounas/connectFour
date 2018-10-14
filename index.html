@@ -22,7 +22,7 @@
 
   <body background="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/master/qbkls.png">
 
-    <div id="Page0" style="display:none">
+    <div id="Page0" >
 
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
@@ -39,11 +39,14 @@
           <input type="password" name="pwd">
           <br><br><br>
           <input type="submit" value="Login">
+          <br>
+           <p><id="demo" onclick="return show('Page1','Page0');">Entrar sem conta</p>
+
         </form>
       </div>
     </div>
 
-    <div id="Page1">
+    <div id="Page1" style="display:none">
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
@@ -80,7 +83,12 @@
             </p>
 
             <p><button class="save" onclick="changeDepth();" type="submit">Definir Dificuldade</button></p>
-            <br>
+
+            <p class="option">Quem joga primeiro?</p>
+            <form action="">
+              <input type="radio" name="gender" value="PC"> PC<br>
+               <input type="radio" name="gender" value="Humano"> Humano<br>
+            </form>
 
             <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
             <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
@@ -91,6 +99,7 @@
         </div>
       </div>
     </div>
+
       <div id="Page2" style="display:none">
         <div>
           <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
