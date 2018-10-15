@@ -15,8 +15,8 @@ body {
 }
 
 .col {
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   display: inline-block;
   background-color: white;
   border-radius: 50%;
@@ -33,7 +33,7 @@ body {
 }
 
 .col.noclick {
-  cursor:default;
+  cursor: default;
 }
 
 .next {
@@ -121,6 +121,8 @@ h1 {
   font-family: arial;
   font-weight: lighter;
 }
+
+
 #difficulty, #sized{
   background-color: white;
   width: 200px;

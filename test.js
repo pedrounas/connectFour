@@ -3,14 +3,20 @@ var maxDepth = 4;
 var row = 6;
 var col = 7;
 var aiMove = -1;
+var tie = 0;
 var b = [];
 
 function changeDepth() {
-  var val= document.getElementById("difficulty").selectedIndex;
-  if (val == 0) { maxDepth = 2;}
-  else if (val == 1) { maxDepth = 4;}
-  else if (val == 2) { maxDepth = 6;}
-  else { maxDepth = 8;}
+  var val = document.getElementById("difficulty").selectedIndex;
+  if (val == 0) {
+    maxDepth = 2;
+  } else if (val == 1) {
+    maxDepth = 4;
+  } else if (val == 2) {
+    maxDepth = 6;
+  } else {
+    maxDepth = 8;
+  }
   console.log(maxDepth);
 }
 
@@ -42,8 +48,13 @@ function makeBoard() {
             b[empty][this.id.slice(6)] = 'O';
             console.log(b);
             turn = 1;
+            tie++;
             if (checkIfWin(row, col) == false) {
               minimax();
+            }
+            if (tie == (row*col)) {
+              alert("O jogo acabou num empate!");
+              removeClick();
             }
           }
         }
@@ -110,8 +121,17 @@ function restartGame() {
             document.getElementById(colName).classList.add("yellow");
             b[empty][this.id.slice(6)] = 'O';
             turn = 1;
+            tie++;
+            if (tie == (row*col)) {
+              alert("O jogo acabou num empate!");
+              removeClick();
+            }
             if (checkIfWin(row, col) == false) {
               minimax();
+            }
+            if (tie == (row*col)) {
+              alert("O jogo acabou num empate!");
+              removeClick();
             }
           }
         }
@@ -120,6 +140,15 @@ function restartGame() {
     }
   }
   console.log(maxDepth);
+}
+
+function show(shown, hidden) {
+  if (shown === 'Page1' && hidden === 'Page0') {
+    alert("Bem vindo ao Connect Four!");
+  }
+  document.getElementById(shown).style.display = 'block';
+  document.getElementById(hidden).style.display = 'none';
+  return false;
 }
 
 function emptyBoard() {
@@ -134,12 +163,12 @@ function emptyBoard() {
 
 function cloneBoard(board) {
   var clone = [];
-    for (var i = 0; i < row; i++) {
-      clone[i] = [];
-      for (var j = 0; j < col; j++) {
-        clone[i][j] = '-';
-      }
+  for (var i = 0; i < row; i++) {
+    clone[i] = [];
+    for (var j = 0; j < col; j++) {
+      clone[i][j] = '-';
     }
+  }
   for (var i = 0; i < row; i++) {
     for (var j = 0; j < col; j++) {
       clone[i][j] = board[i][j];
@@ -179,7 +208,6 @@ function removePiece(colN, rowN) {
 function minimax() {
   var v;
   v = max(b, 0);
-  console.log("MELHOR COLUNA " + aiMove);
   if (aiMove == -1) {
     for (var i = 0; i < col; i++) {
       var free = findUtil(b, i, row);
@@ -195,12 +223,13 @@ function minimax() {
   document.getElementById(colName).classList.remove("empty");
   b[empty][aiMove] = 'X';
   turn = 0;
+  tie++;
   checkIfWin(row, col);
   aiMove = -1;
 }
 
 function max(game, depth) {
-  if (depth == maxDepth ) {
+  if (depth == maxDepth) {
     return utilityVal(game);
   }
   var v = -99999;
@@ -208,12 +237,12 @@ function max(game, depth) {
 
   for (var i = 0; i < col; i++) {
 
-    if (findUtil(game,i, row) == -1) {
+    if (findUtil(game, i, row) == -1) {
       break;
     }
     //console.log(game);
     var s = cloneBoard(game);
-    var empty = findUtil(s,i, row);
+    var empty = findUtil(s, i, row);
     s[empty][i] = 'X';
     v = Math.max(v, min(s, depth + 1));
     if (v > max) {
@@ -232,11 +261,11 @@ function min(game, depth) {
   var v = 99999;
   for (var i = 0; i < col; i++) {
     //console.log("YEET " + depth);
-    if (findUtil(game,i, row) == -1) {
+    if (findUtil(game, i, row) == -1) {
       break;
     }
     var s = cloneBoard(game);
-    var empty = findUtil(s,i, row);
+    var empty = findUtil(s, i, row);
     s[empty][i] = 'O';
     v = Math.min(v, max(s, depth + 1));
   }
@@ -516,9 +545,36 @@ function findEmpty(x, rows) {
   return -1;
 }
 
+function removeClick() {
+  for (var i = 0; i < row; i++) {
+    for (var j = 0; j < col; j++) {
+      var id = "col_" + i + "_" + j;
+      var element = document.getElementById(id);
+      element.classList.add('noclick');
+      element.onclick = function() {
+        return false;
+      }
+    }
+  }
+}
+
+function showWinner(player) {
+  if (player === "ai") {
+    alert("O computador ganhou!");
+    removeClick();
+    return;
+  } else {
+    alert("O jogador ganhou!");
+    removeClick();
+    return;
+  }
+}
+
 function checkIfWin(a, b) {
   var yellowC = false;
   var redC = false;
+  var ai = "ai";
+  var human = "human";
   for (var i = a - 1; i >= 0; i--) {
     for (var j = 0; j < b - 3; j++) {
       var id = "col_" + i + "_" + j;
@@ -527,12 +583,12 @@ function checkIfWin(a, b) {
       var id4 = "col_" + i + "_" + (j + 3);
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
-        alert("O computador ganhou!");
+        showWinner(ai);
         return true;
       }
       if (document.getElementById(id).classList.contains("yellow") && document.getElementById(id2).classList.contains("yellow") &&
         document.getElementById(id3).classList.contains("yellow") && document.getElementById(id4).classList.contains("yellow")) {
-        alert("O jogador amarelo ganhou!");
+        showWinner(human);
         return true;
       }
     }
@@ -546,12 +602,12 @@ function checkIfWin(a, b) {
       var id4 = "col_" + (j - 3) + "_" + i;
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
-        alert("O computador ganhou!");
+        showWinner(ai);
         return true;
       }
       if (document.getElementById(id).classList.contains("yellow") && document.getElementById(id2).classList.contains("yellow") &&
         document.getElementById(id3).classList.contains("yellow") && document.getElementById(id4).classList.contains("yellow")) {
-        alert("O jogador amarelo ganhou!");
+        showWinner(human);
         return true;
       }
     }
@@ -565,12 +621,12 @@ function checkIfWin(a, b) {
 
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
-        alert("O computador ganhou!");
+        showWinner(ai);
         return true;
       }
       if (document.getElementById(id).classList.contains("yellow") && document.getElementById(id2).classList.contains("yellow") &&
         document.getElementById(id3).classList.contains("yellow") && document.getElementById(id4).classList.contains("yellow")) {
-        alert("O jogador amarelo ganhou!");
+        showWinner(human);
         return true;
 
       }
@@ -586,13 +642,13 @@ function checkIfWin(a, b) {
 
       if (document.getElementById(id).classList.contains("red") && document.getElementById(id2).classList.contains("red") &&
         document.getElementById(id3).classList.contains("red") && document.getElementById(id4).classList.contains("red")) {
-        alert("O computador ganhou!");
+        showWinner(ai);
         return true;
 
       }
       if (document.getElementById(id).classList.contains("yellow") && document.getElementById(id2).classList.contains("yellow") &&
         document.getElementById(id3).classList.contains("yellow") && document.getElementById(id4).classList.contains("yellow")) {
-        alert("O jogador amarelo ganhou!");
+        showWinner(human);
         return true;
 
       }
