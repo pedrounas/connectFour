@@ -34,8 +34,8 @@
           <br><br><br>
           <input type="submit" value="Login">
           <br>
-          <p>
-            <id="demo" onclick="return show('Page1','Page0');">Entrar sem conta
+          <p id="demo1">
+             <id="demo" onclick="return show('Page1','Page0');">Entrar sem conta
           </p>
 
         </form>
@@ -89,7 +89,7 @@
             <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
             <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
             <br>
-            <p><button class="quit" onclick="quitGame();">Desistir</button></p>
+            <p><button class="quit" onclick="restartGame();">Desistir</button></p>
 
           </div>
         </div>
@@ -137,7 +137,32 @@
       <div class="switch">
         <p><button href="#" onclick="return show('Page1','Page3');">Voltar</button></p>
       </div>
+
     </div>
+
+    <div id="Page4" style="display: none">
+      <div class="printwinner">
+         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <h1>O computador ganhou!</h1>
+      </div>
+    </div>
+
+    <div id="Page5" style="display: none">
+      <div class="printwinner">
+         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <h1>O jogador ganhou!</h1>
+      </div>
+    </div>
+
+    <div id="Page6" style="display: none">
+      <div class="printwinner">
+         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <h1>O jogo acabaou num empate</h1>
+      </div>
+    </div>
+
+
+
   </body>
 
 </html>

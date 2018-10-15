@@ -15,8 +15,8 @@ body {
 }
 
 .col {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   background-color: white;
   border-radius: 50%;
@@ -90,6 +90,33 @@ h1 {
     color: dodgerblue;
     font-weight: bold;
     font-size: 20px;
+}
+
+.printwinner {
+    top:80px;
+    right: 40px;
+    position: relative;
+    background-color: white;
+    width: 300px;
+    padding: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    color: #1E90FF;
+    margin: 0 auto;
+    z-index: 0;
+
+}
+
+#close {
+    float:right;
+    display:inline-block;
+    padding:2px 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#demo1 {
+    cursor: pointer;
 }
 
 .login input[type = "submit"]:hover

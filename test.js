@@ -53,7 +53,8 @@ function makeBoard() {
               minimax();
             }
             if (tie == (row*col)) {
-              alert("O jogo acabou num empate!");
+              var msg = document.getElementById("Page6");
+              msg.style.display ="block";
               removeClick();
             }
           }
@@ -123,14 +124,16 @@ function restartGame() {
             turn = 1;
             tie++;
             if (tie == (row*col)) {
-              alert("O jogo acabou num empate!");
+              var msg = document.getElementById("Page4");
+              msg.style.display ="block";
               removeClick();
             }
             if (checkIfWin(row, col) == false) {
               minimax();
             }
             if (tie == (row*col)) {
-              alert("O jogo acabou num empate!");
+              var msg = document.getElementById("Page6");
+              msg.style.display ="block";
               removeClick();
             }
           }
@@ -143,9 +146,9 @@ function restartGame() {
 }
 
 function show(shown, hidden) {
-  if (shown === 'Page1' && hidden === 'Page0') {
+  /*if (shown === 'Page1' && hidden === 'Page0') {
     alert("Bem vindo ao Connect Four!");
-  }
+  }*/
   document.getElementById(shown).style.display = 'block';
   document.getElementById(hidden).style.display = 'none';
   return false;
@@ -560,11 +563,13 @@ function removeClick() {
 
 function showWinner(player) {
   if (player === "ai") {
-    alert("O computador ganhou!");
+    var msg = document.getElementById("Page4");
+    msg.style.display ="block";
     removeClick();
     return;
   } else {
-    alert("O jogador ganhou!");
+    var msg = document.getElementById("Page5");
+    msg.style.display ="block";
     removeClick();
     return;
   }
