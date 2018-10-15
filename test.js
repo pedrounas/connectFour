@@ -52,8 +52,9 @@ function makeBoard() {
             if (checkIfWin(row, col) == false) {
               minimax();
             }
-            if (tie == row * col) {
+            if (tie == (row*col)) {
               alert("O jogo acabou num empate!");
+              removeClick();
             }
           }
         }
@@ -121,14 +122,16 @@ function restartGame() {
             b[empty][this.id.slice(6)] = 'O';
             turn = 1;
             tie++;
-            if (tie == row * col) {
+            if (tie == (row*col)) {
               alert("O jogo acabou num empate!");
+              removeClick();
             }
             if (checkIfWin(row, col) == false) {
               minimax();
             }
-            if (tie == row * col) {
+            if (tie == (row*col)) {
               alert("O jogo acabou num empate!");
+              removeClick();
             }
           }
         }
