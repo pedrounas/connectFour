@@ -150,9 +150,14 @@ h1 {
 }
 
 
-#difficulty, #sized{
+#difficulty{
   background-color: white;
   width: 200px;
+}
+
+#height, #width {
+  background-color: white;
+  width: 98px;
 }
 
 .login p{

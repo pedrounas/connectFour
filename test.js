@@ -52,9 +52,9 @@ function makeBoard() {
             if (checkIfWin(row, col) == false) {
               minimax();
             }
-            if (tie == (row*col)) {
+            if (tie == (row * col)) {
               var msg = document.getElementById("Page6");
-              msg.style.display ="block";
+              msg.style.display = "block";
               removeClick();
             }
           }
@@ -67,40 +67,30 @@ function makeBoard() {
 }
 
 function restartGame() {
-  var size = document.getElementById("sized").selectedIndex;
+  var hIndex = document.getElementById("height");
+  var height = hIndex.options[hIndex.selectedIndex].value;
+  var wIndex = document.getElementById("width");
+  var width = wIndex.options[wIndex.selectedIndex].value;
+  row = height;
+  col = width;
+  console.log ("row " + row + "col " + col);
   var filho = document.getElementById("board");
   var pai = document.getElementById("container");
 
-  if (size == 0) {
-    row = 4;
-    col = 5;
-    while (document.getElementById("board") != null) {
-      pai.removeChild(filho);
-    }
+  while (document.getElementById("board") != null) {
+    pai.removeChild(filho);
   }
-  if (size == 1) {
-    row = 6;
-    col = 7;
-    while (document.getElementById("board") != null) {
-      pai.removeChild(filho);
-    }
-  }
-  if (size == 2) {
-    row = 9;
-    col = 10;
-    if (document.getElementById("board") != null) {
-      pai.removeChild(filho);
-    }
-  }
+
   var board = document.createElement("div");
+  board.id = "board";
+  document.getElementById("container").appendChild(board);
   emptyBoard();
   console.log(b);
   for (var i = 0; i < row; i++) {
-    board.id = "board";
     var rows = document.createElement("div");
     rows.classList.add("row");
     rows.id = i;
-    document.getElementById("container").appendChild(board);
+
     document.getElementById("board").appendChild(rows);
     for (var j = 0; j < col; j++) {
       var cols = document.createElement("div");
@@ -123,17 +113,17 @@ function restartGame() {
             b[empty][this.id.slice(6)] = 'O';
             turn = 1;
             tie++;
-            if (tie == (row*col)) {
+            if (tie == (row * col)) {
               var msg = document.getElementById("Page4");
-              msg.style.display ="block";
+              msg.style.display = "block";
               removeClick();
             }
             if (checkIfWin(row, col) == false) {
               minimax();
             }
-            if (tie == (row*col)) {
+            if (tie == (row * col)) {
               var msg = document.getElementById("Page6");
-              msg.style.display ="block";
+              msg.style.display = "block";
               removeClick();
             }
           }
@@ -152,6 +142,17 @@ function show(shown, hidden) {
   document.getElementById(shown).style.display = 'block';
   document.getElementById(hidden).style.display = 'none';
   return false;
+}
+
+function changePlayerStart(val) {
+  if (val === 0) {
+    turn = 1;
+    restartGame();
+  }
+  else {
+    turn = 0;
+    restartGame();
+  }
 }
 
 function emptyBoard() {
@@ -564,12 +565,12 @@ function removeClick() {
 function showWinner(player) {
   if (player === "ai") {
     var msg = document.getElementById("Page4");
-    msg.style.display ="block";
+    msg.style.display = "block";
     removeClick();
     return;
   } else {
     var msg = document.getElementById("Page5");
-    msg.style.display ="block";
+    msg.style.display = "block";
     removeClick();
     return;
   }

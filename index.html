@@ -16,7 +16,7 @@
 
   <body background="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/master/qbkls.png">
 
-    <div id="Page0">
+    <div id="Page0" style="display:none">
 
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
@@ -35,14 +35,14 @@
           <input type="submit" value="Login">
           <br>
           <p id="demo1">
-             <id="demo" onclick="return show('Page1','Page0');">Entrar sem conta
+            <id="demo" onclick="return show('Page1','Page0');">Entrar sem conta
           </p>
 
         </form>
       </div>
     </div>
 
-    <div id="Page1" style="display:none">
+    <div id="Page1">
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
@@ -55,10 +55,23 @@
 
           <p class="option">Tamanho do Tabuleiro</p>
           <p>
-            <select id="sized" autocomplete="off">
-              <option value="4_5">4 linhas e 5 colunas</option>
-              <option value="6_7" selected="selected">6 linhas e 7 colunas</option>
-              <option value="9_10">9 linhas e 10 colunas</option>
+
+            <select id="height" autocomplete="off">
+              <option value="4">4 linhas</option>
+              <option value="5">5 linhas</option>
+              <option value="6" selected="selected">6 linhas</option>
+              <option value="7">7 linhas</option>
+              <option value="8">8 linhas</option>
+              <option value="9">9 linhas</option>
+            </select>
+
+            <select id="width" autocomplete="off">
+              <option value="5">5 colunas</option>
+              <option value="6">6 colunas</option>
+              <option value="7" selected="selected">7 colunas</option>
+              <option value="8">8 colunas</option>
+              <option value="9">9 colunas</option>
+              <option value="10">10 colunas</option>
             </select>
           </p>
 
@@ -82,8 +95,8 @@
 
             <p class="option">Quem joga primeiro?</p>
             <form action="">
-              <input type="radio" name="gender" value="PC"> PC<br>
-              <input type="radio" name="gender" value="Humano"> Humano<br>
+              <input type="radio" name="player" id="pc" value="PC" onclick="changePlayerStart(0)"> PC<br>
+              <input type="radio" name="player" value="Jogador" onselect="changePlayerStart(1)"> Jogador<br>
             </form>
 
             <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
@@ -142,21 +155,21 @@
 
     <div id="Page4" style="display: none">
       <div class="printwinner">
-         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
         <h1>O computador ganhou!</h1>
       </div>
     </div>
 
     <div id="Page5" style="display: none">
       <div class="printwinner">
-         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
         <h1>O jogador ganhou!</h1>
       </div>
     </div>
 
     <div id="Page6" style="display: none">
       <div class="printwinner">
-         <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
         <h1>O jogo acabaou num empate</h1>
       </div>
     </div>
