@@ -95,6 +95,8 @@ h1 {
   left: 500px;
   top: 200px;
   margin: auto;
+  border-radius: 15px;
+  border: 2px solid  #1E90FF;
   background-color: white;
   width: 300px;
   font-weight: bold;
@@ -105,13 +107,9 @@ h1 {
 
 .turn {
   float: left;
-  /*width: 100px;
-  font-weight: bold;
-  font-size: 15px;
-  color: #1E90FF;*/
   margin: 0px 10px;
 }
-}
+
 
 #close {
   float: right;
@@ -171,54 +169,6 @@ h1 {
 .login h1 {
   color: white;
   font-weight: lighter;
-}
-
-.popup {
-  float: left;
-  left: 10%;
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  padding: 5px;
-  border-radius: 6px;
-  background-color: ;
-  background-color: Gainsboro;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: -725%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: -3%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
 }
 
 table {

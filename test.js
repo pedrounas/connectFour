@@ -20,52 +20,6 @@
     console.log(maxDepth);
   }
 
-  /*function makeBoard() {
-    for (var i = 0; i < 6; i++) {
-      var rows = document.createElement("div");
-      rows.classList.add("row");
-      rows.id = i;
-      document.getElementById("board").appendChild(rows)
-      emptyBoard();
-      for (var j = 0; j < 7; j++) {
-        var cols = document.createElement("div");
-        cols.classList.add("col");
-        cols.id = "col_" + i + "_" + j;
-        cols.classList.add("empty");
-        cols.onclick = function() {
-          var empty = findEmpty(this.id, row);
-          var colName = "col_" + empty + "_" + this.id.slice(6);
-          /*if (turn == 0) {
-            if (empty != -1) {
-              document.getElementById(colName).classList.add("red");
-              turn = 1;
-              checkIfWin(row, col);
-            }
-          } else */
-  /*  if (turn == 0) {
-          if (empty != -1) {
-            document.getElementById(colName).classList.add("yellow");
-            b[empty][this.id.slice(6)] = 'O';
-            console.log(b);
-            turn = 1;
-            tie++;
-            if (checkIfWin(row, col) == false) {
-              minimax();
-            }
-            if (tie == (row * col)) {
-              var msg = document.getElementById("Page6");
-              msg.style.display = "block";
-              removeClick();
-            }
-          }
-        }
-      };
-      rows.appendChild(cols);
-    }
-  }
-  console.log(maxDepth);
-} */
-
   function restartGame() {
     var hIndex = document.getElementById("height");
     row = hIndex.options[hIndex.selectedIndex].value;
@@ -151,9 +105,6 @@
   }
 
   function show(shown, hidden) {
-    /*if (shown === 'Page1' && hidden === 'Page0') {
-      alert("Bem vindo ao Connect Four!");
-    }*/
     document.getElementById(shown).style.display = 'block';
     document.getElementById(hidden).style.display = 'none';
     return false;
@@ -714,8 +665,3 @@
     }
     return false;
   }
-
-  /*function popupInst() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-  }*/
