@@ -6,7 +6,6 @@
 
 body {
   text-align: center;
-
 }
 
 #board {
@@ -15,8 +14,8 @@ body {
 }
 
 .col {
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   background-color: white;
   border-radius: 50%;
@@ -28,6 +27,7 @@ body {
 .option {
   font-weight: bold;
 }
+
 .col.empty {
   cursor: pointer;
 }
@@ -63,8 +63,8 @@ h1 {
 }
 
 .all {
-  position: absolute;
-  left: 25%;
+  width: 75%;
+  margin: 0 auto;
 }
 
 #copyright {
@@ -76,39 +76,72 @@ h1 {
   display: table;
   margin: 0 auto;
   background-color: dodgerblue;
-
   padding: 25px 20px;
 }
 
-.login input[type = "submit"]
-{
-    border: none;
-    outline: none;
-    height: 40px;
-    width: 100px;
-    background: white;
-    color: dodgerblue;
-    font-weight: bold;
-    font-size: 20px;
+.login input[type="submit"] {
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 100px;
+  background: white;
+  color: dodgerblue;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.login input[type = "submit"]:hover
-{
-    cursor: pointer;
-    background: dodgerblue;
-    color: #fff;
-
+.printwinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  background-color: white;
+  width: 300px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #1E90FF;
+  margin: 0 auto;
+  z-index: 0;
 }
 
-.login input[type = "text"], input[type="password"]
-{
-    border: none;
-    border-bottom: 1px solid #fff;
-    background: transparent;
-    outline: none;
-    height: 40px;
-    color: #fff;
-    font-size: 16px;
+.turn {
+  float: left;
+  /*width: 100px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #1E90FF;*/
+  margin: 0px 10px;
+}
+}
+
+#close {
+  float: right;
+  display: inline-block;
+  padding: 2px 5px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+#demo1 {
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  cursor: pointer;
+  background: dodgerblue;
+  color: #fff;
+}
+
+.login input[type="text"], input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #fff;
+  font-size: 16px;
 }
 
 * button {
@@ -121,23 +154,27 @@ h1 {
   font-family: arial;
   font-weight: lighter;
 }
-#difficulty, #sized{
+
+#difficulty, #starter {
   background-color: white;
   width: 200px;
 }
 
-.login p{
-    color: white;
-    font-family: arial;
-    font-weight: bold;
+#height, #width {
+  background-color: white;
+  width: 98px;
+}
 
+.login p {
+  color: white;
+  font-family: arial;
+  font-weight: bold;
 }
 
 .login h1 {
   color: white;
   font-weight: lighter;
 }
-
 
 .popup {
   float: left;
@@ -147,8 +184,8 @@ h1 {
   cursor: pointer;
   padding: 5px;
   border-radius: 6px;
-  background-color:;
-  background-color:Gainsboro;
+  background-color: ;
+  background-color: Gainsboro;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -187,23 +224,20 @@ h1 {
   animation: fadeIn 1s;
 }
 
-
-
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 60%;
-    margin-left: 20%;
-    background-color: white;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin-left: 20%;
+  background-color: white;
 }
 
-
 td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
 }
 
 tr:nth-child(even) {
-    background-color: #dddddd;
+  background-color: #dddddd;
 }
