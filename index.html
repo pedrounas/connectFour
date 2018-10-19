@@ -16,14 +16,14 @@
 
   <body background="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/master/qbkls.png">
 
-    <div id="Page0" style="display:none">
+    <div id="Page0">
 
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
 
       <div class="login">
-        <form action="#" onsubmit="return show('Page1','Page0');">
+        <form id="login" action="#" onsubmit="return show('Page1','Page0');">
           <h1>Insira os seus dados</h1>
           <br>
           <p>Nome de Utilizador:</p>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div id="Page1">
+    <div id="Page1" style="display:none">
       <div>
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
@@ -50,7 +50,6 @@
         <div class="container" id="container">
           <div id="board"></div>
         </div>
-        <script> makeBoard()</script>
         <div class="menu">
 
           <p class="option">Tamanho do Tabuleiro</p>
@@ -75,38 +74,36 @@
             </select>
           </p>
 
+          <p class="option">Dificuldade</p>
+          <p>
+            <select id="difficulty" autocomplete="off">
+              <option value="2">Fácil</option>
+              <option value="4" selected="selected">Médio</option>
+              <option value="6">Dificil</option>
+              <option value="8">Muito Dificil</option>
+            </select>
+          </p>
 
-          <p><button class="save" onclick="restartGame();" type="submit">Definir Tabuleiro</button></p>
+          <p class="option">Quem joga primeiro?</p>
+          <p>
+            <select id="starter" autocomplete="off">
+              <option value="0">Jogador</option>
+              <option value="1">Computador</option>
+            </select>
+          </p>
 
+          <p><button class="save" onclick="restartGame();" type="submit">Definir Jogo</button></p>
 
-          <div class="menu">
+          <br>
 
-            <p class="option">Dificuldade</p>
-            <p>
-              <select id="difficulty" autocomplete="off">
-                <option value="2">Fácil</option>
-                <option value="4" selected="selected">Médio</option>
-                <option value="6">Dificil</option>
-                <option value="8">Muito Dificil</option>
-              </select>
-            </p>
-
-            <p><button class="save" onclick="changeDepth();" type="submit">Definir Dificuldade</button></p>
-
-            <p class="option">Quem joga primeiro?</p>
-            <form action="">
-              <input type="radio" name="player" id="pc" value="PC" onclick="changePlayerStart(0)"> PC<br>
-              <input type="radio" name="player" value="Jogador" onselect="changePlayerStart(1)"> Jogador<br>
-            </form>
-
-            <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
-            <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
-            <br>
-            <p><button class="quit" onclick="restartGame();">Desistir</button></p>
-
-          </div>
+          <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
+          <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
+          <br>
+          <p><button class="quit" onclick="restartGame();" type="submit">Desistir</button></p>
+          <p><button class="quit" onclick="updateTable();" type="submit">Desistir</button></p>
         </div>
       </div>
+    </div>
     </div>
 
     <div id="Page2" style="display:none">
@@ -114,20 +111,20 @@
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
       <div id="table">
-        <table>
+        <table id="test">
           <tr>
             <th>Nome de Utilizador</th>
             <th>Número de jogos</th>
-            <th>Percentagem de vitórias</th>
+            <th>Número de vitórias</th>
           </tr>
           <tr>
-            <td>Pedro Unas</td>
-            <td>1337</td>
-            <td>100%</td>
+            <td>Jogador</td>
+            <td>0</td>
+            <td>0</td>
           <tr>
-            <td>Solange Sampaio</td>
-            <td>1337</td>
-            <td>99.9%</td>
+            <td>Computador</td>
+            <td>0</td>
+            <td>0</td>
         </table>
       </div>
 
