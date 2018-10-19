@@ -47,6 +47,14 @@
         <img alt="header" src="https://raw.githubusercontent.com/pedrounas/connectfour.github.io/support/Untitled-1.png">
       </div>
       <div class="all">
+        <div class="turn" id="turn">
+          <p id="showturn">Esperando pelo começo do jogo!</p>
+
+          <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
+          <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
+          <br>
+          <p><button class="quit" onclick="quit();" type="submit">Desistir</button></p>
+        </div>
         <div class="container" id="container">
           <div id="board"></div>
         </div>
@@ -96,14 +104,8 @@
 
           <br>
 
-          <p><button href="#" onclick="return show('Page2','Page1');">Classificações</button></p>
-          <p><button href="#" onclick="return show('Page3','Page1');">Instruções</button></p>
-          <br>
-          <p><button class="quit" onclick="restartGame();" type="submit">Desistir</button></p>
-          <p><button class="quit" onclick="updateTable();" type="submit">Desistir</button></p>
         </div>
       </div>
-    </div>
     </div>
 
     <div id="Page2" style="display:none">
@@ -116,15 +118,18 @@
             <th>Nome de Utilizador</th>
             <th>Número de jogos</th>
             <th>Número de vitórias</th>
+            <th>Percentagem de vitórias</th>
           </tr>
           <tr>
             <td>Jogador</td>
             <td>0</td>
             <td>0</td>
+            <td>0%</td>
           <tr>
             <td>Computador</td>
             <td>0</td>
             <td>0</td>
+            <td>0%</td>
         </table>
       </div>
 
@@ -152,21 +157,21 @@
 
     <div id="Page4" style="display: none">
       <div class="printwinner">
-        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='hide("Page4")'>X</span>
         <h1>O computador ganhou!</h1>
       </div>
     </div>
 
     <div id="Page5" style="display: none">
       <div class="printwinner">
-        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='hide("Page5")'>X</span>
         <h1>O jogador ganhou!</h1>
       </div>
     </div>
 
     <div id="Page6" style="display: none">
       <div class="printwinner">
-        <span id='close' onclick='this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode); return false;'>X</span>
+        <span id='close' onclick='hide("Page6")'>X</span>
         <h1>O jogo acabaou num empate</h1>
       </div>
     </div>

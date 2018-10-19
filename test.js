@@ -4,6 +4,7 @@
   var aiMove = -1;
   var tie = 0;
   var b = [];
+  var turn = -1;
 
   function changeDepth() {
     var val = document.getElementById("difficulty").selectedIndex;
@@ -82,13 +83,18 @@
     while (document.getElementById("board") != null) {
       pai.removeChild(filho);
     }
-
     var board = document.createElement("div");
     board.id = "board";
     document.getElementById("container").appendChild(board);
     emptyBoard();
     tie = 0;
     console.log(b);
+    if (turn == 1) {
+      showTurn(0);
+    }
+    else if (turn == 0) {
+      showTurn(0);
+    }
     for (var i = 0; i < row; i++) {
       var rows = document.createElement("div");
       rows.classList.add("row");
@@ -104,30 +110,34 @@
           var empty = findEmpty(this.id, row);
           var colName = "col_" + empty + "_" + this.id.slice(6);
           if (turn == 0) {
+            showTurn(0);
             if (empty != -1) {
               document.getElementById(colName).classList.add("yellow");
               b[empty][this.id.slice(6)] = 'O';
               turn = 1;
+
               tie++;
               checkIfWin(row, col);
+              setTimeout(showTurn,1000,0);
               if (tie == (row * col) && checkIfWin(row, col) == false) {
-
                 var msg = document.getElementById("Page4");
                 msg.style.display = "block";
                 removeClick();
               }
             }
+
           }
           if (turn == 1) {
-            minimax();
-            turn = 0;
-            tie++;
-            checkIfWin(row, col);
+            showTurn(1);
+            setTimeout(minimax,1000);
+
+
             if (tie == (row * col) && checkIfWin(row, col) == false) {
               var msg = document.getElementById("Page6");
               msg.style.display = "block";
               removeClick();
             }
+
           }
         };
         rows.appendChild(cols);
@@ -147,6 +157,22 @@
     document.getElementById(shown).style.display = 'block';
     document.getElementById(hidden).style.display = 'none';
     return false;
+  }
+
+  function hide(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function showTurn(vez) {
+    console.log("VEZ " + vez);
+    if (vez == 1) {
+          var pai = document.getElementById("showturn");
+          pai.innerHTML = "Jogada: Computador";
+    }
+    else if (vez == 0) {
+          var pai = document.getElementById("showturn");
+          pai.innerHTML = "Jogada: "+ login.elements[0].value;
+    }
   }
 
   function emptyBoard() {
@@ -209,12 +235,27 @@
     document.getElementById("test").rows[1].cells[0].innerHTML = login.elements[0].value;
   }
 
-  /*function updateTable(player) {
-    var currG = document.getElementById("test").rows[1].cells[1].innerHTML;
+  function updateTable(player) {
+    var currG = parseInt(document.getElementById("test").rows[1].cells[1].innerHTML);
     if (player === "ai") {
-      document.getElementById("test").rows[1].cells[1].innerHTML = (currG+1);
+      document.getElementById("test").rows[2].cells[1].innerHTML = (currG + 1);
+      document.getElementById("test").rows[1].cells[1].innerHTML = (currG + 1);
+      var currW = parseInt(document.getElementById("test").rows[2].cells[2].innerHTML);
+      document.getElementById("test").rows[2].cells[2].innerHTML = (currW + 1);
+      document.getElementById("test").rows[2].cells[3].innerHTML = ((currW + 1)/(currG + 1) * 100) + "%";
+    } else {
+      document.getElementById("test").rows[2].cells[1].innerHTML = (currG + 1);
+      document.getElementById("test").rows[1].cells[1].innerHTML = (currG + 1);
+      var currW = parseInt(document.getElementById("test").rows[1].cells[2].innerHTML);
+      document.getElementById("test").rows[1].cells[2].innerHTML = (currW + 1);
+      document.getElementById("test").rows[1].cells[3].innerHTML = ((currW + 1)/(currG + 1) * 100) + "%";
     }
-  }*/
+  }
+
+  function quit() {
+    updateTable("ai");
+    restartGame();
+  }
 
   function minimax() {
     var v;
@@ -235,6 +276,7 @@
     b[empty][aiMove] = 'X';
     turn = 0;
     tie++;
+    checkIfWin(row, col);
     aiMove = -1;
   }
 
@@ -565,12 +607,16 @@
   function showWinner(player) {
     if (player === "ai") {
       updateTable(player);
+      var pai = document.getElementById("showturn");
+      pai.innerHTML = "Jogo Acabado!";
       var msg = document.getElementById("Page4");
       msg.style.display = "block";
       removeClick();
       return;
     } else {
       updateTable(player);
+      var pai = document.getElementById("showturn");
+      pai.innerHTML = "Jogo Acabado!";
       var msg = document.getElementById("Page5");
       msg.style.display = "block";
       removeClick();
