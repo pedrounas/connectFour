@@ -6,6 +6,7 @@
 
 body {
   text-align: center;
+  background: url('https://raw.githubusercontent.com/pedrounas/connectfour.github.io/master/qbkls.png');
 }
 
 #board {
@@ -119,7 +120,7 @@ h1 {
 }
 
 
-#close {
+#close1, #close2 {
   float: right;
   display: inline-block;
   padding: 2px 5px;

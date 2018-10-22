@@ -155,7 +155,6 @@
   function findUtil(game, colN, rows) {
     for (var i = rows - 1; i >= 0; i--) {
       if (game[i][colN] == '-') {
-        //console.log(colN + " " + i);
         return i;
       }
     }
@@ -182,7 +181,7 @@
 
   function getName() {
     var form = document.getElementById("login");
-    //console.log(form.elements[0].value);
+
     document.getElementById("test").rows[1].cells[0].innerHTML = login.elements[0].value;
   }
 
@@ -243,7 +242,7 @@
       if (findUtil(game, i, row) == -1) {
         break;
       }
-      //console.log(game);
+
       var s = cloneBoard(game);
       var empty = findUtil(s, i, row);
       s[empty][i] = 'X';
@@ -263,7 +262,7 @@
     }
     var v = 99999;
     for (var i = 0; i < col; i++) {
-      //console.log("YEET " + depth);
+
       if (findUtil(game, i, row) == -1) {
         break;
       }
@@ -279,7 +278,7 @@
     var totalUtility = 0;
     var nReds = 0;
     var nYellows = 0;
-    //console.log("INICIAL " + totalUtility);
+    //horizontal
     for (var i = row - 1; i >= 0; i--) {
       for (var j = 0; j < col - 3; j++) {
         if (game[i][j] != 'O' && game[i][j + 1] != 'O' && game[i][j + 2] != 'O' && game[i][j + 3] != 'O') {
