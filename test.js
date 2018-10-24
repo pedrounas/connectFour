@@ -15,7 +15,7 @@
     } else if (val == 2) {
       maxDepth = 6;
     } else {
-      maxDepth = 8;
+      maxDepth = 7;
     }
     console.log(maxDepth);
   }
